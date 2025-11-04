@@ -17,3 +17,4 @@ frontend/build/
 # Misc
 .cache/
 coverage/
+.coverage
