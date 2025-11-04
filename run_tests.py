@@ -12,14 +12,19 @@ def run_tests():
     """Run the test suite"""
     print("Running Arbitrage Betting App Tests")
     print("=" * 50)
-    
+
+    # Set up environment with backend in PYTHONPATH
+    env = os.environ.copy()
+    backend_path = os.path.join(os.path.dirname(__file__), 'backend')
+    env['PYTHONPATH'] = backend_path + os.pathsep + env.get('PYTHONPATH', '')
+
     # Run pytest with coverage
     try:
         result = subprocess.run([
-            sys.executable, '-m', 'pytest', 'tests/', 
+            sys.executable, '-m', 'pytest', 'tests/',
             '-v', '--tb=short',
             '--cov=backend/core', '--cov=backend/adapters', '--cov=backend/models'
-        ], capture_output=False, text=True)
+        ], capture_output=False, text=True, env=env)
         
         if result.returncode == 0:
             print("\n✅ All tests passed!")
