@@ -1,6 +1,19 @@
-node_modules/
-.env
+# Python
+.venv/
 __pycache__/
 *.pyc
-.DS_Store
+*.pyo
+*.pyd
+.pytest_cache/
+.env
 .env.*
+# Node
+node_modules/
+frontend/.env*
+frontend/dist/
+frontend/build/
+# Mac/OS
+.DS_Store
+# Misc
+.cache/
+coverage/
